@@ -14,5 +14,5 @@ python TrainandTestClassifier.py
 To run the handwritten recognition software, please type the following command:
 python HandWrittenClassifier.py
 
-IMPORTANT FOR MAC USERS: When running the HandWrittenClassifier.py and draw the digit on the promped window, DON'T CLOSE THE WINDOW! Instead, PRESS ESC button to continue! 
+IMPORTANT FOR MAC USERS: When running the HandWrittenClassifier.py, DON'T CLOSE THE PROMPED WINDOW after finishing drawing the digit on the promped window! Instead, PRESS ESC button to continue! 
 (This is the wierd property for OpenCV on Mac. For windows uers, you can ignore this warning).
