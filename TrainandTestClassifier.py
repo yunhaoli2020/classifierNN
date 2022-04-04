@@ -8,7 +8,6 @@ import torch.optim as optim
 from models.run_model import run_model
 from models.network import Digit_Classifier
 from models.SVM import SVMClassifier
-from data.load_data import load_mnist_data
 import time
 import matplotlib.pyplot as plt
 
@@ -17,12 +16,20 @@ import matplotlib.pyplot as plt
 PATH = "train_nn.pt"
 
 #Generate training and testing data, including images and targets
-train_features,test_features,train_targets,test_targets = load_mnist_data(10, fraction= 0.8)
+
+MNISTData = np.load("MNISTDataset.npz")
+train_features = MNISTData['arr_0']
+test_features = MNISTData['arr_1']
+train_targets = MNISTData['arr_2']
+test_targets = MNISTData['arr_3']
+
 
 print(train_features.shape)
 print(train_targets.shape)
 print(test_features.shape)
 print(test_targets.shape)
+
+
 
 # Take 16 images in training dataset to visualize
 trainImages = train_features[0:16,:]
@@ -41,6 +48,8 @@ plt.show()
 train_dataset = MyDataset(train_features, train_targets)
 test_dataset = MyDataset(test_features,test_targets)
 train_loader = DataLoader(train_dataset, batch_size=10, shuffle= True)
+
+
 
 #Train and test SVM classifier first
 start = time.time()
